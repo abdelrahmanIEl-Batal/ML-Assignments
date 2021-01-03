@@ -7,8 +7,9 @@ def computeCost(X, y, theta, Lambda):
     m = X.shape[0]
     cost = 1 - y * (np.dot(X, theta))
     cost[cost < 0] = 0  # max(0, 1 - y (wx)
-    cost = np.sum(cost) / m + Lambda / 2 * np.linalg.norm(np.power(theta,2))
+    cost = np.sum(cost) / m + Lambda / 2 * np.power(np.linalg.norm(theta), 2)
     return cost
+
 
 def normalize(X):
     # calculated mean and std of every column and store it in a row vector
